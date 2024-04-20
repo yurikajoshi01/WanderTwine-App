@@ -1,0 +1,869 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+
+h1{
+    color: #800080;
+}
+.app-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    margin: 0;
+    padding-left: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    color: #4B024B; 
+    background: linear-gradient(45deg, #4B024B, #DB7DDB);
+    background-clip: text;
+    color: transparent; 
+}
+
+@media (max-width: 768px) {
+    .app-name {
+        font-size: 1.5rem;
+    }
+}
+
+
+.primary-title {
+    font-size: clamp(40px, 8vw, 90px);
+    color: rgb(255, 255, 255);
+}
+
+.primary-button {
+    color: rgb(255,255,255);
+    text-transform: uppercase;
+    font-size:clamp(12px, 2.5vw, 15px);
+    background: linear-gradient(45deg, rgb(75, 2, 75), rgb(219, 125, 219));
+    padding: 12px 30px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+}
+
+.primary-button:hover {
+    background: linear-gradient(260deg, rgb(75, 2, 75), rgb(219, 125, 219));
+}
+
+.secondary-button {
+    color: rgb(255, 255, 255); /* white text */
+    background: linear-gradient(45deg, rgb(75, 2, 75), rgb(219, 125, 219));
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 12px 30px;
+    border-radius: 30px;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.secondary-button:hover {
+    background: linear-gradient(260deg, rgb(75, 2, 75), rgb(219, 125, 219));
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2); 
+}
+
+/*-------- Navbar --------*/
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 0 10px; 
+    background-color: rgba(244, 195, 240, 0.588); /* Semi-transparent purple */
+}
+
+nav .nav-button {
+    color: rgb(81, 22, 77);
+    background-color: rgb(255, 255, 255);
+    font-size: 20px;
+    padding: 10px 30px;
+    border-radius: 10px;
+    height:70px;
+    border: none;
+    margin: 10px 30px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover and disabled states */
+}
+
+nav .nav-button:disabled {
+    background-color: rgb(187, 163, 200);
+    color: rgb(107, 40, 129);
+    cursor: default; /* Changes the cursor to indicate the button is disabled */
+}
+
+nav .logo-container {
+    width: 170px; /* Specific width for the logo container */
+    display: flex; /* Makes the logo container a flex container */
+    align-items: center; /* Centers the logo vertically within the logo container */
+    justify-content: center; /* Centers the logo horizontally */
+    margin: 10px 15px; /* Adjust margin as needed */
+}
+
+nav .logo-container .logo {
+    width: 350px; 
+    height: 90px;
+    margin-top: 20px;
+    margin-left: 130px;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper input {
+    padding-right: 30px; 
+    width: 100%;
+}
+
+.input-wrapper i {
+    position: absolute;
+    right: 10px; 
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+/*-------- Home page --------*/
+.overlay {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background: linear-gradient(
+            to bottom,
+            rgba(120, 20, 148, 0.65) 0%,
+            rgba(40, 2, 38, 0) 100%
+    )
+}
+
+.home {
+    margin-top: 30vh; /* default for larger screens */
+}
+
+@media (max-width: 768px) {
+    .home {
+        margin-top: 15vh; /* smaller margin for tablet and below */
+    }
+}
+
+@media (max-width: 480px) {
+    .home {
+        margin-top: 10vh; /* even smaller margin for mobile screens */
+    }
+}
+
+
+
+/*-------- Auth Modal --------*/
+.auth-modal {
+    position: fixed; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    width: 90%; 
+    max-width: 360px;
+    max-height: 600px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+    z-index: 1000; 
+}
+
+.auth-modal .close-icon {
+    cursor: pointer;
+    font-size: 24px; 
+    color: rgb(120, 120, 120); 
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.auth-modal h2 {
+    margin-top: 0;
+    color: rgb(74, 74, 74); 
+    font-weight: 600;
+}
+
+.auth-modal p {
+    font-size: 14px;
+    color: rgb(100, 100, 100);
+    line-height: 1.5;
+}
+
+.auth-modal form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.auth-modal input[type="email"],
+.auth-modal input[type="password"] {
+    padding: 12px 15px;
+    margin-top: 10px;
+    border: 1px solid rgb(200, 200, 200);
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none; 
+}
+
+.auth-modal input[type="email"]:focus,
+.auth-modal input[type="password"]:focus {
+    border-color: rgb(75, 2, 75); 
+    box-shadow: 0 0 0 2px rgba(219, 125, 219, 0.5); 
+}
+
+
+/*-------- OnBoarding Page --------*/
+.onboarding {
+    border-top: solid 1px rgb(236, 175, 244);
+}
+
+.onboarding form {
+    display: flex;
+    justify-content: center;
+}
+
+.onboarding form section {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 35%;
+    text-align: start;
+}
+
+.onboarding form input {
+    padding: 5px 10px;
+    margin: 10px 0;
+    font-size: 10px;
+    border: solid 2px rgb(229, 185, 241);
+    border-radius: 10px;
+}
+
+.onboarding form label {
+    margin: 10px 0;
+}
+
+.onboarding form .multiple-input-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.onboarding form input::-webkit-outer-spin-button,
+.onboarding form input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.onboarding p{
+    font-size: 12px;
+}
+
+.onboarding form .multiple-input-container input {
+    margin-right: 10px;
+}
+
+.onboarding form .multiple-input-container label {
+    padding: 5px;
+    border: solid 2px rgb(139, 54, 175);
+    border-radius: 10px;
+    transition: all 0.3s;
+    margin-right: 10px;
+}
+
+.onboarding form input[type=radio] {
+    display: none;
+    margin-right: 10px;
+}
+
+.onboarding form input[type=number] {
+    width: 10%;
+}
+
+.custom-select {
+
+    width: 100%;
+    padding:  5px 10px;
+    margin: 10px 0;
+    margin-right: 10px;
+    font-size: 10px;
+    border: 2px solid rgb(246, 177, 246);
+    border-radius: 5px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+
+  .custom-select option {
+    font-size: 10px;
+  }
+
+.onboarding form input[type=radio]:checked + label {
+    border: solid 2px rgb(29, 13, 32);
+    background: rgb(246, 177, 246);
+}
+
+.onboarding form input[type=submit]:hover {
+    background-color: rgb(139, 75, 160);
+}
+
+.onboarding form input[type=submit]:active {
+    background-color: rgb(162, 86, 172);
+
+}
+
+.onboarding form .photo-container img {
+    width: 100%
+}
+
+
+
+
+/*-------- Dashboard  --------*/
+.dashboard {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashboard .swipe-container {
+    width: 60%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    .dashboard .swipe-container {
+        width: 100%; 
+        padding: 5px; 
+    }
+}
+
+.swipe {
+    position: fixed;
+  
+}
+.dashboard .card-container {
+    width: 20vw; 
+    height: 70vh; 
+    max-width: 300px; 
+    max-height: 500px; 
+}
+
+.card {
+    width: 300px ;
+    height: 500px; 
+    border-radius: 30px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .dashboard .card {
+        width: 80%; 
+        padding: 5px; /* Reduced padding */
+    }
+}
+
+.card h3 {
+    color: rgb(222, 129, 243);
+    margin-top: 0;
+}
+
+.card p {
+    color: rgb(214, 129, 232);
+}
+
+.dashboard .swipe-info {
+    position: absolute;
+    bottom: 0;
+    padding: 10px;
+}
+
+
+
+
+/**-chatcontainer**-/
+/*-------- Chat Container --------*/
+.chat-container {
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    flex-basis: 35%; 
+    flex-shrink: 0; 
+    max-width: 35%; 
+    height: 100vh;  
+    text-align: left;
+    z-index: 1;
+}
+
+
+.chat-container .chat-container-header {
+    background: linear-gradient(45deg, rgb(75, 2, 75), rgb(219, 125, 219));
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-container .option {
+    border: none;
+    background-color: rgb(255, 255, 255);
+    border-bottom: solid 4px rgb(145, 46, 135);
+    font-size: 20px;
+    margin: 2px;
+    padding: 10px;
+}
+
+.chat-container .option:disabled {
+    border-bottom: solid 4px rgb(146, 123, 147);
+}
+
+.chat-container .profile,
+.chat-container .log-out-icon {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    color: rgb(255, 255, 255);
+}
+
+/*----Image Container for being shown as profile in chat----*/
+
+.matches-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    max-height: 90vh;
+    width: 100%;
+}
+
+
+.match-card, .request-card {
+    display: flex; 
+    align-items: center; 
+    cursor: pointer;
+    width: 100%; 
+    margin: 5px 0; 
+    padding: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: #fff; 
+}
+
+.img-container img {
+    width: 50px; 
+    height: 50px; 
+    object-fit: cover; 
+    border-radius: 50%; 
+}
+
+.match-name {
+    margin-left: 20px; 
+    flex-grow: 1; 
+}
+
+.search-input {
+    width: 80%; 
+    padding: 10px 15px;
+    margin: 20px 0;
+    font-size: 16px; 
+    border: 1px solid #ccc; 
+    border-radius: 25px; 
+    outline: none; 
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+    transition: border-color 0.3s, box-shadow 0.3s; 
+}
+
+.search-input:focus {
+    border-color: #ed95ff; 
+    box-shadow: 0 0 8px rgba(150, 21, 124, 0.5); 
+}
+
+/*-------- Chat Display --------*/
+.chat-display {
+    padding: 20px;
+    height: 52vh;
+    overflow-y: auto;
+}
+
+/*-------- Chat Input --------*/
+.chat-display {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+.chat-header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    color: white;
+    background-color: #8a4b85;
+    border-bottom: 1px solid #dd79e8;
+}
+.chat-message {
+    display: flex;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    word-wrap: break-word; /* Ensures texts within messages do not overflow */
+}
+.chat-message.left {
+    background-color: #857689; 
+    align-items: flex-start;
+    align-self: flex-start; 
+    margin-right: auto; 
+    text-align: left; 
+    border-radius: 12px; 
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+    color: #f9f9f9;
+    max-width: 70%; 
+}
+
+.chat-message.right {
+    justify-content: flex-end;
+    align-items: flex-end;
+    align-self: flex-end;
+    color: #f9f9f9;
+    background-color: #a377d3; /* Extremely light purple for messages from the user */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+}
+
+
+.chat-message-header p {
+    margin: 0;
+    font-weight: bold;
+
+}
+
+.chat-message p {
+    margin: 5px 0;
+}
+
+.chat-input {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-pic-container {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.profile-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+
+/*Profile*/
+
+
+
+.profilePage {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+.profileHeader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profileImage {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.profileDetails {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+h2, h4 {
+    color: #523d3d;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.error-message {
+    color: red;
+}
+
+.required-label {
+    color: red;
+}
+
+
+/*For user display*/
+
+.userdisplay {
+    display: flex;
+    flex-direction: row;  /* Aligns children (ChatContainer and users-container) in a row */
+    align-items: start;   /* Aligns children at the start of the cross axis */
+    justify-content: space-between; /* Puts some space between the two containers */
+    padding: 20px;
+}
+
+.users-container {
+    flex-grow: 1; /* Allows the user cards container to take up any leftover space */
+    margin-left: 20px; /* Adds some space between the chat container and the user cards */
+}
+
+.users-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Starts with 5 columns on larger screens */
+    gap: 20px; /* Space between cards */
+    margin-top: 20px;
+}
+
+
+.user-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.user-card:hover {
+    transform: scale(1.05); /* Slight scale on hover for interactive effect */
+}
+
+.user-card img.profile-pic {
+    width: 110px; /* Make image responsive within the card */
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.user-card h3 {
+    font-size: 14px; /* Smaller font size to fit more content */
+    color: #333;
+    margin: 5px 0;
+}
+
+.user-card p {
+    font-size: 12px; /* Smaller font size for descriptions */
+    color: #666;
+    text-align: center; /* Centering text */
+    margin: 5px 0;
+}
+
+.interests-container {
+    display: flex;
+    flex-wrap: wrap; /* Wrap interests to the next line if space is insufficient */
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+
+.interest {
+    background-color: #b191d2;
+    border-radius: 20px;
+    padding: 2px 8px; /* Smaller padding to fit more tags */
+    font-size: 10px; /* Smaller font size for interests */
+    color: #333;
+}
+
+.interests {
+    background-color: #b191d2;
+    border-radius: 20px;
+    padding: 8px 15px; /* Smaller padding to fit more tags */
+    font-size: 14px; /* Smaller font size for interests */
+    color: #333;
+}
+
+.users-container .button {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 12px; /* Smaller button font */
+    background: linear-gradient(45deg, rgb(75, 2, 75), rgb(219, 125, 219));
+    padding: 8px 20px; /* Smaller padding for button */
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s ease;
+}
+
+.users-container .button:hover {
+    background: linear-gradient(45deg, rgb(219, 125, 219), rgb(75, 2, 75));
+    transform: scale(1.1); /* Enlarge button slightly on hover for effect */
+}
+
+
+.users-container .button {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 12px; /* Smaller button font */
+    background: linear-gradient(45deg, rgb(75, 2, 75), rgb(219, 125, 219));
+    padding: 8px 20px; /* Smaller padding for button */
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s ease;
+}
+
+.users-container .button:hover {
+    background: linear-gradient(45deg, rgb(219, 125, 219), rgb(75, 2, 75));
+    transform: scale(1.1); /* Enlarge button slightly on hover for effect */
+}
+
+
+@media (max-width: 1400px) {
+    .users-grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 columns when the screen width is less than 1400px */
+    }
+}
+
+@media (max-width: 1024px) {
+    .users-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columns when the screen width is less than 1024px */
+    }
+}
+
+@media (max-width: 768px) {
+    .users-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns when the screen width is less than 768px */
+    }
+}
+
+@media (max-width: 576px) {
+    .users-grid {
+        grid-template-columns: repeat(1, 1fr); /* 1 column for very small devices */
+    }
+}
+
+
+.profile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    z-index: 1000; /* High z-index to cover other content */
+}
+
+.popup-card {
+    position: relative; /* Needed for positioning the close button absolutely */
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px; /* Adjust width as needed */
+    text-align: center;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: none;
+    background: none;
+    font-size: 24px; /* Large close button */
+    cursor: pointer;
+}
+
+.large-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Accept Button */
+.accept-button {
+    background-color: #d483e7; /* Green */
+    border: none;
+    color: rgb(37, 29, 29);
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .accept-button:hover {
+    background-color: #bd66dd; /* Darker Green */
+  }
+  
+  /* Decline Button */
+  .decline-button {
+    background-color: #694a71; /* Red */
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .decline-button:hover {
+    background-color: #4c194d; /* Darker Red */
+  }
+  
+  /*.notifications-dropdown {
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0;
+    width: 300px;
+}*/
+
+.notification-item {
+    padding: 10px;
+    border-bottom: 1px solid #491f68;
+    cursor: pointer;
+}
+
+.notification-item:hover {
+    background-color: #c389c7;
+}

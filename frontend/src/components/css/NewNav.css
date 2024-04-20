@@ -1,0 +1,77 @@
+/* Apply a universal box-sizing rule */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%; /* Prevents horizontal scrolling caused by body overflow */
+    overflow-x: hidden; /* Hides horizontal scroll bars */
+}
+
+.navibar {
+    background-color: #f6bdefdb;
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+    width: 100%; /* Ensures navbar fits the viewport width */
+}
+
+.menu-icon {
+    display: none;  /* Hidden on large screens */
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.navi-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.navi-links li a {
+    text-decoration: none;
+    color: rgb(34, 34, 34);
+    padding: 10px 15px;
+}
+
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block; /* Show the menu icon on smaller screens */
+    }
+
+    .navi-links {
+        flex-direction: column;
+        width: 100%;
+        display: none; /* Hide links initially */
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #f6bdef9a;
+        z-index: 1000;
+    }
+
+    .navi-links.open {
+        display: flex; /* Show links when menu is toggled */
+    }
+
+    .navi-links li {
+        text-align: center; /* Center align the links */
+        width: 100%;
+    }
+}
+
+.log-out{
+    font-size:24px;
+    cursor: pointer;
+}
+
+.log-out :hover{
+    cursor: pointer;
+}
